@@ -623,7 +623,7 @@ Transform:
   m_GameObject: {fileID: 1787208975}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.24191, y: 0.35, z: -1.21}
+  m_LocalPosition: {x: 11.42, y: 0.35, z: -1.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -897,7 +897,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!65 &1924659626
 BoxCollider:
@@ -980,15 +980,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8916741cdb6c77040bd13a1152692fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RaftController
-  acceleration: 5
-  turnSpeed: 50
-  waterDrag: 0.99
+  acceleration: 2
+  deceleration: 2
+  maxSpeed: 2.5
+  speedForMaxRotation: 2
   rowCycleTime: 1
-  rowingTimer: 0
-  turnAcceleration: 5
-  turnDeceleration: 2
-  maxTurnSpeed: 50
-  directionAlignSpeed: 10
+  turnAcceleration: 4
+  turnDeceleration: 1
+  maxTurnSpeed: 15
 --- !u!33 &1924659629
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1006,7 +1005,7 @@ Transform:
   m_GameObject: {fileID: 1924659624}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.77574, y: 0.29, z: -11.36147}
+  m_LocalPosition: {x: 2.74, y: 0.26, z: -11.36147}
   m_LocalScale: {x: 3.5033, y: 1, z: 5.1459}
   m_ConstrainProportionsScale: 0
   m_Children: []
