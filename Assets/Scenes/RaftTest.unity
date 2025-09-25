@@ -986,8 +986,8 @@ MonoBehaviour:
   speedForMaxRotation: 2
   rowCycleTime: 1
   turnAcceleration: 4
-  turnDeceleration: 1
-  maxTurnSpeed: 20
+  turnDeceleration: 2
+  maxTurnSpeed: 15
 --- !u!33 &1924659629
 MeshFilter:
   m_ObjectHideFlags: 0

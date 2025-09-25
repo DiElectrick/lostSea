@@ -49,12 +49,12 @@ public class RaftController : MonoBehaviour
         float angle = Vector3.SignedAngle(transform.forward, moveDir, transform.up);
         float sinAngle = Mathf.Sin(angle * Mathf.Deg2Rad);
 
-        decelerationForce = - moveDir * (acceleration * ((rb.linearVelocity.magnitude / maxSpeed) + 0.5f * Mathf.Abs(sinAngle)));
+        decelerationForce = -moveDir * (acceleration * ((rb.linearVelocity.magnitude / maxSpeed) + 0.5f * Mathf.Abs(sinAngle)));
         decelerationForce += Vector3.Cross(moveDir, Vector3.up).normalized * sinAngle * 0.9f;
-             
+
 
         rb.AddForce(decelerationForce, ForceMode.Acceleration);
-        
+
 
         if (Mathf.Abs(moveInput.y) > 0.01f)
         {
@@ -63,6 +63,15 @@ public class RaftController : MonoBehaviour
 
         }
 
+   
+        rb.AddTorque(0,- turnDeceleration * (rb.angularVelocity.y * Mathf.Rad2Deg / maxTurnSpeed),0,ForceMode.Acceleration);
+
+        if (Mathf.Abs(moveInput.x) > 0.01f)
+        {
+            rb.AddTorque(0, (turnAcceleration * moveInput.x * Mathf.Min(1f,speedForMaxRotation/rb.linearVelocity.magnitude)), 0, ForceMode.Acceleration);
+        }
+
+        /*
         // Управление угловой скоростью (инерция поворота)
         if (Mathf.Abs(moveInput.x) > 0.01f)
         {
@@ -87,7 +96,7 @@ public class RaftController : MonoBehaviour
             float turn = currentTurnSpeed * Time.fixedDeltaTime;
             rb.MoveRotation(rb.rotation * Quaternion.Euler(0f, turn, 0f));
         }
-
+        */
 
     }
 
@@ -114,12 +123,12 @@ public class RaftController : MonoBehaviour
 
         // Рисуем луч от текущей позиции вперед
         Gizmos.DrawRay(transform.position, new Vector3(moveInput.x, 0, moveInput.y) * 2);
-        Gizmos.DrawRay(transform.position, transform.forward*3);
+        Gizmos.DrawRay(transform.position, transform.forward * 3);
 
         // Рисуем сферу в конечной точке луча
         Gizmos.DrawWireSphere(endPosition, 0.1f);
 
         Gizmos.color = Color.red;
-       // Gizmos.DrawRay(transform.position, rb.linearVelocity * 5f);
+        // Gizmos.DrawRay(transform.position, rb.linearVelocity * 5f);
     }
 }
