@@ -89,63 +89,6 @@ public class RaftController : MonoBehaviour
         }
 
 
-        // rb.linearVelocity *= waterDrag;
-
-        /*
-         *         rb.AddForceAtPosition(
-            new Vector3(0,0, (moveInput.y * acceleration) - moveInput.x), 
-            new Vector3(transform.position.x + 1f, transform.position.y, transform.position.z), ForceMode.Acceleration
-            );
-
-        rb.AddForceAtPosition(
-            new Vector3(0, 0, (moveInput.y * acceleration) + moveInput.x), 
-            new Vector3(transform.position.x - 1f, transform.position.y, transform.position.z), ForceMode.Acceleration
-            );
-         * 
-         * 
-        
-                // плавное доворачивание направления движения
-        moveDirection = Vector3.Slerp(
-            moveDirection,
-            transform.forward,
-            Time.deltaTime * directionAlignSpeed
-        );
-        
-        if (Mathf.Abs(moveInput.y) > 0.01f)
-        {
-            Vector3 force = moveDirection * (moveInput.y * acceleration);
-            rb.AddForce(force, ForceMode.Acceleration);
-        }
-
-        // Управление угловой скоростью (инерция поворота)
-        if (Mathf.Abs(moveInput.x) > 0.01f)
-        {
-            currentTurnSpeed = Mathf.MoveTowards(
-                currentTurnSpeed,
-                moveInput.x * maxTurnSpeed * Mathf.Min(1f,speedForMaxRotation/rb.linearVelocity.magnitude),
-                turnAcceleration * Time.fixedDeltaTime * maxTurnSpeed
-            );
-        }
-        else
-        {
-            currentTurnSpeed = Mathf.MoveTowards(
-                currentTurnSpeed,
-                0f,
-                turnDeceleration * Time.fixedDeltaTime * maxTurnSpeed
-            );
-        }
-
-        // применяем вращение
-        if (Mathf.Abs(currentTurnSpeed) > 0.01f)
-        {
-            float turn = currentTurnSpeed * Time.fixedDeltaTime;
-            rb.MoveRotation(rb.rotation * Quaternion.Euler(0f, turn, 0f));
-        }
-
-
-        rb.linearVelocity *= waterDrag; 
-
-        */
     }
 
     void rowlingCount()

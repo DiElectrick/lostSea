@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float _interactionRange = 3f;
     [SerializeField] private KeyCode _interactionKey = KeyCode.E;
-    [SerializeField] private Camera _playerCamera; // —сылка на камеру игрока
 
     private IInteractable _currentInteractable;
 
